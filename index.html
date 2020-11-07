@@ -33,14 +33,26 @@
 
     <div id="app">
 
-        <div class="circle" :style="circleClasses">
-        </div>
+        <!-- <h2 v-if="type === 'a'">A</h2>
+        <h2 v-else-if="type === 'b'">B</h2>
+        <h2 v-else-if="type === 'c'">C</h2>
+        <h2 v-else>not match</h2>
 
-        <div class="circle" :style="[circleClasses, {'width': height + 'px'}]"
-        ></div>
+        <hr>
 
-        <input type="text" v-model="color">
-        <input type="text" v-model="height">
+        <input type="text" v-model="type"> -->
+
+        <template>
+            <h2 v-if="isVisible">I am title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, consequatur.</p>
+    
+        </template>
+        
+        <template v-else>
+        <h2 style="color: red;">I am title</h2>
+        <p style="color: blue;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, consequatur.</p>
+    </template>
+
 
     </div>
 
@@ -49,18 +61,14 @@
         new Vue({
             el: '#app',
             data: {
-                height: '100',
-                color: 'blue'
+                type: 'a',
+                isVisible: false
             },
             computed: {
-                circleClasses() {
-                    return {
-                        'background': this.color, 'height': this.height + 'px'
-                    }
-                }
+
             },
             methods: {
-               
+
             }
         })
     </script>

@@ -9,15 +9,11 @@
     
 <div id="app">
 
-    <h2>
-        <a :href="url">google</a>
-    </h2>
+<input type="text" v-model.lazy="inputValue">
+
+<h2>{{inputValue}}</h2>
 
 
-    <h2>Couner:  {{ counter }}</h2>
-
-    <button @click="counter++">+</button>
-    
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -25,8 +21,7 @@
     new Vue({
         el: '#app',
         data: {
-            counter: 0,
-            url: 'http://google.com'
+           inputValue: 'Initial value'
         },
         methods: {
         

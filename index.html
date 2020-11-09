@@ -33,22 +33,15 @@
 
     <div id="app">
 
-       <ul>
-           <li v-for="(person, index) of people">{{ index + 1 }} {{ person.name }} - <b>{{person.age}}</li>
-       </ul>
+        <h2>Counter {{ counter }}  \  {{ counter2 }}</h2>
+        <h3>{{ result() }}</h3>
+        <h3>Computed: {{ computedResult }}</h3>
 
-       <hr>
+        <button @click="add">add</button>
 
-       <ol>
-           <li v-for="num of 10">{{ num }}</li>
-       </ol>
+        <button @click="sub">sub</button>
 
-       <hr>
-
-       <ul>
-           <li v-for="(value, key) of person"> <b>{{ key }}</b> {{value}}</li>
-       </ul>
-
+        <button @click="counter2++">add counter2</button>
 
     </div>
 
@@ -57,22 +50,27 @@
         new Vue({
             el: '#app',
             data: {
-                people: [
-                   {name: 'vlad', age: 20},
-                   {name: 'max', age: 25},
-                   {name: 'elema', age: 30}
-                ],
-                person: {
-                    name: 'Max',
-                    age: 50,
-                    job: 'Frontend'
-                }
+               counter: 0,
+               counter2: 0
             },
             computed: {
-
+                computedResult() {
+                    console.log('computed counter')
+                    return this.counter > 3 ? 'More than 3' : 'Less than 3'
+                }
             },
             methods: {
-
+                add() {
+                    this.counter++
+                    
+                },
+                sub() {
+                    this.counter--
+                },
+                result() {
+                    console.log('counter')
+                    return this.counter > 3 ? 'More than 3' : 'Less than 3'
+                }
             }
         })
     </script>

@@ -33,15 +33,21 @@
 
     <div id="app">
 
-        <template>
-            <h2 v-show="isVisible">I am title</h2>
-            <h2 v-show="!isVisible">You can't see me</h2>
+       <ul>
+           <li v-for="(person, index) of people">{{ index + 1 }} {{ person.name }} - <b>{{person.age}}</li>
+       </ul>
 
-            <hr>
+       <hr>
 
-            <button @click="isVisible  = !isVisible">click</button>
-    
-        </template>
+       <ol>
+           <li v-for="num of 10">{{ num }}</li>
+       </ol>
+
+       <hr>
+
+       <ul>
+           <li v-for="(value, key) of person"> <b>{{ key }}</b> {{value}}</li>
+       </ul>
 
 
     </div>
@@ -51,8 +57,16 @@
         new Vue({
             el: '#app',
             data: {
-                type: 'a',
-                isVisible: true
+                people: [
+                   {name: 'vlad', age: 20},
+                   {name: 'max', age: 25},
+                   {name: 'elema', age: 30}
+                ],
+                person: {
+                    name: 'Max',
+                    age: 50,
+                    job: 'Frontend'
+                }
             },
             computed: {
 
